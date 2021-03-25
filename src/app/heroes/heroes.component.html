@@ -1,23 +1,36 @@
-<h2>{{hero.name | uppercase}} Details</h2>
-<div><span>ID:</span>{{hero.id}}</div>
-<div>
-<label for="name"> Nombre de Super Héroe</label>
-<input id="name"[(ngModel)]="hero.name" placeholder="name">
-</div>
-<div>
-    <label for="name"> Edad </label>
-    <input id="edad"[(ngModel)]="hero.edad" placeholder="edad">
-</div>
-<div>
-    <label for="name"> Super poderes </label>
-    <input id="superpower"[(ngModel)]="hero.superpower" placeholder="superpower">
-</div>
-<div>
-    <label for="name"> Identidad Secreta </label>
-    <input id="identify"[(ngModel)]="hero.identify" placeholder="identify">
-</div>
-<div>
-    <label for="name"> Universo </label>
-    <input id="universe"[(ngModel)]="hero.universe" placeholder="universe">
-</div>
+<h2>Mis heroes Favoritos</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes"
+    [class.selected]="hero === selectedHero"
+      (click)="onSelect(hero)">
+      <span class="badge">{{hero.id}}</span>{{hero.name}}
+    </li>
+</ul>
+<div *ngIf="selectedHero">
+    <h2>{{selectedHero.name | uppercase}} detalles</h2>
+    <div><span> ID: </span>{{selectedHero.id}}</div>
+    <div>
+        <label for="hero-name"> Nombre del Heroe: </label>
+        <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="nombre">
+    </div>
 
+    <div>
+        <label for="hero-edad"> Edad del Heroe: </label>
+        <input id="hero-edad" [(ngModel)]="selectedHero.edad" placeholder="edad">
+    </div>
+
+    <div>
+        <label for="hero-superpower"> Superpoderes del Heroe: </label>
+        <input id="hero-superpower" [(ngModel)]="selectedHero.superpower" placeholder="superpower">
+    </div>
+
+    <div>
+        <label for="hero-identify"> Identidad del Heroe: </label>
+        <input id="hero-identify" [(ngModel)]="selectedHero.identify" placeholder="identify">
+    </div>
+
+    <div>
+        <label for="hero-universe"> Universo del Heroe: </label>
+        <input id="hero-universe" [(ngModel)]="selectedHero.universe" placeholder="universe">
+    </div>
+</div>
