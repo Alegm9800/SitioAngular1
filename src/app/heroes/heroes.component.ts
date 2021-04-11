@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Hero} from '/Users/Alex/SitioAngular1/src/app/hero';
+import {Hero} from '../hero';
 
-import{HEROES} from '/Users/Alex/SitioAngular1/src/app/mock-heroes';
+import{HEROES} from '../mock-heroes';
+
+import{HeroDetailComponent} from '../hero-detail/hero-detail.component'
+
 
 @Component({
   selector: 'app-heroes',
@@ -11,7 +14,8 @@ import{HEROES} from '/Users/Alex/SitioAngular1/src/app/mock-heroes';
 export class HeroesComponent implements OnInit {
 
   heroes = HEROES;
-  selectedHero?: Hero;
+  selectedHero!:  Hero;
+  details!: HeroDetailComponent;
 
   constructor() { }
 
@@ -20,5 +24,6 @@ export class HeroesComponent implements OnInit {
   onSelect(hero:Hero):void{
     this.selectedHero = hero;
   }
+
 
 }
